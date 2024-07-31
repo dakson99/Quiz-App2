@@ -25,3 +25,29 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.heading {
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #1f2847;
+    font-size: 14px;
+}
