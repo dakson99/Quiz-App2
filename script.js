@@ -7,6 +7,16 @@ const progress = (value) => {
     progressText.innerHTML = `${value}`;
 };
 
-let time = 30;
+let questions = [],
+    time = 30,
+    score = 0,
+    currentQuestion,
+    timer;
 
-progress(20);
+const startBtn = document.querySelector('.start');
+const numQuestions = document.querySelector('#num-questions');
+const category = document.querySelector('#category');
+const difficulty = document.querySelector('#difficulty');
+const timePerQuestion = document.querySelector('#time');
+const quiz = document.querySelector('.quiz');
+const startscreen = document.querySelector('.start-screen');
