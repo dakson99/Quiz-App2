@@ -20,3 +20,12 @@ const difficulty = document.querySelector('#difficulty');
 const timePerQuestion = document.querySelector('#time');
 const quiz = document.querySelector('.quiz');
 const startscreen = document.querySelector('.start-screen');
+
+const startQuiz = () => {
+    const num = numQuestions.value;
+    cat = category.value;
+    diff = difficulty.value;
+    // api url
+    const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&difficulty=${diff}&type=multiple`;
+
+};
