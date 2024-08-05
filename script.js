@@ -28,4 +28,12 @@ const startQuiz = () => {
     // api url
     const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&difficulty=${diff}&type=multiple`;
 
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            questions = data.results;
+            console.log(questions);
+        });
 };
+
+startBtn.addEventListener("click", startQuiz);
