@@ -47,4 +47,24 @@ const showQuestion = (question) => {
     questionNumber = document.querySelector('.number');
 
     questionText.innerHTML = question.question;
+
+    // correct an wrong answer are separate lets mix them
+    const answers = [
+        ...question.incorrect_answers,
+        question.correct_answer.toString(),
+    ];
+    //correct answer will be always at last
+    // lets shuffle the array
+    answers.sort(() => Math.random() - 0.5);
+    answersWrapper.innerHTML = "";
+    answers.forEach((answer) => {
+        answersWrapper.innerHTML += `
+        <div class="answer ">
+                    <span class="text">${answer}</span>
+                    <span class="checkbox">
+                        <span class="icon">✔</span>
+                    </span>
+                </div>`
+    })
+
 };
