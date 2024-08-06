@@ -32,8 +32,19 @@ const startQuiz = () => {
         .then((res) => res.json())
         .then((data) => {
             questions = data.results;
-            console.log(questions);
+            startscreen.classList.add("hide");
+            quiz.classList.remove("hide");
+            currentQuestion = 1;
+            showQuestion(questions[0]);
         });
 };
 
 startBtn.addEventListener("click", startQuiz);
+
+const showQuestion = (question) => {
+    const questionText = document.querySelector('.question');
+    answersWrapper = document.querySelector('.answer-wrapper');
+    questionNumber = document.querySelector('.number');
+
+    questionText.innerHTML = question.question;
+};
