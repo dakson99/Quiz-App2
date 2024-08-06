@@ -64,7 +64,10 @@ const showQuestion = (question) => {
                     <span class="checkbox">
                         <span class="icon">✔</span>
                     </span>
-                </div>`
-    })
+                </div>`;
+    });
 
+    questionNumber.innerHTML = `
+    Question <span class="current">${questions.indexOf(question) + 1
+        }</span><span class="total">/${questions.length}</span>`;
 };
