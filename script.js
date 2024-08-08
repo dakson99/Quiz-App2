@@ -156,5 +156,10 @@ const checkAnswer = () => {
                 }
             });
     }
+
+    //lets block user to selected further answers
+    const answerDiv = document.querySelectorAll(".answer");
+    answerDiv.forEach((answer) => {
+        answer.classList.add("checked");
+    });
 };
-//lets block user to selected further answers
