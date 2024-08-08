@@ -89,4 +89,31 @@ const showQuestion = (question) => {
         });
     });
 
+    // after updating question start timer
+    time = timePerQuestion.value;
+    startTimer(time);
+
+};
+
+const startTimer = (time) => {
+    timer = setInterval(() => {
+        if (timer >= 0) {
+            //if timer more than 0 means time remaining
+            //move progress
+            progress(time);
+            time--;
+        } else {
+            //if time finishes means less than 0
+            checkAnswer();
+        }
+    }, 1000);
+};
+
+submitBtn.addEventListener("click", () => {
+    checkAnswer();
+});
+
+const checkAnswer = () => {
+    //firstclear inteval when check answer triggerd
+    clearInterval(timer);
 };
