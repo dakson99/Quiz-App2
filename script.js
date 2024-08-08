@@ -97,7 +97,7 @@ const showQuestion = (question) => {
 
 const startTimer = (time) => {
     timer = setInterval(() => {
-        if (timer >= 0) {
+        if (time >= 0) {
             //if timer more than 0 means time remaining
             //move progress
             progress(time);
@@ -116,4 +116,45 @@ submitBtn.addEventListener("click", () => {
 const checkAnswer = () => {
     //firstclear inteval when check answer triggerd
     clearInterval(timer);
+
+    const selectedAnswer = document.querySelector(".answer.selected");
+    //any answer is elekected
+    if (selectedAnswer) {
+        const answer = selectedAnswer.querySelector(".text");
+        if (answer === questions[currentQuestion - 1].correct_answer) {
+            //if answer matched with current question currect answer
+            //increase score
+            score++;
+            //add correct class on selected
+            selectedAnswer.classList.add('correct');
+        } else {
+            //if worng selected
+            //add wrong class on selected but then also add correct on correct answer
+            //correct added lets add wrong on selected
+            selectedAnswer.classList.add("wrong");
+            const correctAnswer = document.querySelectorAll(".answer")
+                .forEach((answer) => {
+                    if (
+                        answer.querySelector(".text").innerHTML === questions[currentQuestion - 1].correct_answer
+                    ) {
+                        //only add correct class to correct answer
+                        answer.classList.add("correct");
+                    }
+                });
+        }
+    }
+    //answer check will be also triggered when time reaches 0
+    //what if nothing selected and time finishes
+    else {
+        const correctAnswer = document.querySelectorAll(".answer")
+            .forEach((answer) => {
+                if (
+                    answer.querySelector(".text").innerHTML === questions[currentQuestion - 1].correct_answer
+                ) {
+                    //only add correct class to correct answer
+                    answer.classList.add("correct");
+                }
+            });
+    }
 };
+//lets block user to selected further answers
