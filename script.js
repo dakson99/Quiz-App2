@@ -41,6 +41,9 @@ const startQuiz = () => {
 
 startBtn.addEventListener("click", startQuiz);
 
+const submitBtn = document.querySelector(".submit"),
+    nextBtn = document.querySelector(".next");
+
 const showQuestion = (question) => {
     const questionText = document.querySelector('.question');
     answersWrapper = document.querySelector('.answer-wrapper');
@@ -70,4 +73,20 @@ const showQuestion = (question) => {
     questionNumber.innerHTML = `
     Question <span class="current">${questions.indexOf(question) + 1
         }</span><span class="total">/${questions.length}</span>`;
+
+    // add event listener on answers
+
+    const answersDiv = document.querySelectorAll(".answer");
+    answersDiv.forEach((answer) => {
+        answer.addEventListener("click", () => {
+            if (!answer.classList.contains("checked")) {
+                answersDiv.forEach((answer) => {
+                    answer.classList.remove("selected");
+                });
+                answer.classList.add("selected");
+                submitBtn.disabled = false;
+            }
+        });
+    });
+
 };
