@@ -162,4 +162,31 @@ const checkAnswer = () => {
     answerDiv.forEach((answer) => {
         answer.classList.add("checked");
     });
+
+    //after submit show next btn to go tonext qiestion
+    submitBtn.style.display = "none";
+    nextBtn.style.display = "block";
+
+
+};
+
+//on next btn click show next question
+
+nextBtn.addEventListener("click", () => {
+    nextQuestion();
+    //also show submit btn on next question and hide next btn
+    nextBtn.style.display = "none";
+    submitBtn.style.display = "block";
+});
+
+const nextQuestion = () => {
+    //if there is remaining question
+    if (currentQuestion < questions.length) {
+        currentQuestion++;
+        //show question
+        showQuestion(questions[currentQuestion - 1]);
+    } else {
+        //if no question remamaining
+        // showScore();
+    }
 };
