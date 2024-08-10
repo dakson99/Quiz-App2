@@ -187,6 +187,17 @@ const nextQuestion = () => {
         showQuestion(questions[currentQuestion - 1]);
     } else {
         //if no question remamaining
-        // showScore();
+        showScore();
     }
+};
+
+const endScreen = document.querySelector(".end-screen"),
+    finalScore = document.querySelector(".final-score"),
+    totalScore = document.querySelector(".total-score");
+
+const showScore = () => {
+    endScreen.classList.remove("hide");
+    quiz.classList.add("hide");
+    finalScore.innerHTML = score;
+    totalScore.innerHTML = `/${questions / length}`;
 };
