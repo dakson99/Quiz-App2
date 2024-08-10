@@ -199,5 +199,5 @@ const showScore = () => {
     endScreen.classList.remove("hide");
     quiz.classList.add("hide");
     finalScore.innerHTML = score;
-    totalScore.innerHTML = `/${questions / length}`;
+    totalScore.innerHTML = `/${questions.length}`;
 };
