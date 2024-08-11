@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -12,14 +12,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #dddfeb;
+    background: #dddfeb;
 }
 
 .container {
     position: relative;
     width: 100%;
     max-width: 400px;
-    background-color: #1f2847;
+    background: #1f2847;
     padding: 30px;
     overflow: hidden;
     border-radius: 10px;
@@ -38,40 +38,22 @@ label {
     font-size: 12px;
     margin-bottom: 10px;
     color: #fff;
-    text-transform: capitalize;
 }
 
 select {
     width: 100%;
     padding: 10px;
+    border: none;
     text-transform: capitalize;
     border-radius: 5px;
     margin-bottom: 20px;
-    background-color: #fff;
+    background: #fff;
     color: #1f2847;
     font-size: 14px;
 }
 
-.btn {
-    width: 100%;
-    height: 60px;
-    background-color: #0c80ef;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s linear;
-}
-
-.btn:hover {
-    background-color: #0a6bc5;
-}
-
-.btn:disabled {
-    cursor: not-allowed;
-    background-color: #576081;
+.start-screen .btn {
+    margin-top: 50px;
 }
 
 .hide {
@@ -84,6 +66,7 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin-bottom: 30px;
 }
 
@@ -91,11 +74,11 @@ select {
     position: relative;
     width: 100%;
     height: 40px;
-    background-color: transparent;
+    background: transparent;
     border-radius: 30px;
     overflow: hidden;
     margin-bottom: 10px;
-    border: 3px solid #3f4866;
+    border: 3px solid #3f4868;
 }
 
 .timer .progress .progress-bar {
@@ -154,7 +137,6 @@ select {
 .answer .checkbox {
     width: 20px;
     height: 20px;
-    font-size: 12px;
     border-radius: 50%;
     border: 3px solid #3f4868;
     display: flex;
@@ -163,17 +145,20 @@ select {
     transition: all 0.3s;
 }
 
-.answer .checkbox .icon {
+.answer .checkbox i {
+    color: #fff;
+    font-size: 10px;
     opacity: 0;
+    transition: all 0.3s;
 }
 
 .answer:hover:not(.checked) .checkbox,
-.answer.selection .checkbox {
+.answer.selected .checkbox {
     background-color: #0c80ef;
     border-color: #0c80ef;
 }
 
-.answer.selection .checkbox .icon {
+.answer.selected .checkbox i {
     opacity: 1;
 }
 
@@ -190,8 +175,29 @@ select {
     margin-bottom: 50px;
 }
 
+.btn {
+    width: 100%;
+    height: 60px;
+    background: #0c80ef;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.btn:hover {
+    background: #0a6bc5;
+}
+
+.btn:disabled {
+    background: #576081;
+    cursor: not-allowed;
+}
+
 .btn.next {
-    /* show when answer submit */
     display: none;
 }
 
@@ -203,9 +209,10 @@ select {
     text-align: center;
 }
 
-.end-screen .score-text {
+.score .score-text {
     color: #a2aace;
     font-size: 16px;
+    font-weight: 500;
     margin-bottom: 120px;
 }
 
